@@ -24,7 +24,7 @@ int main(){
     }
     else
     {
-        printf("socket creation completed\n");
+        printf("socket creation completed\n\n");
     }
 
     bzero((char *)&servAddr, sizeof(servAddr));
@@ -39,6 +39,8 @@ int main(){
     }
 
     int num1, num2, num3;
+
+//taking mark inputs
 
     bzero(buffer, 255);
     read(sockfd, buffer, 255);
@@ -58,20 +60,22 @@ int main(){
     scanf("%d", &num3);
     write(sockfd, &num3, sizeof(num3));
 
-    bzero(buffer, 255);
-    read(sockfd, buffer, 255);
-    printf("%s\n", buffer);
+
+// displaying grade
+    printf("\nYOUR GRADES ARE:-\n");
 
     bzero(buffer, 255);
     read(sockfd, buffer, 255);
-    printf(" %s\n", buffer);
+    printf("%s", buffer);
 
     bzero(buffer, 255);
     read(sockfd, buffer, 255);
-    printf(" %s\n", buffer);
-    // bzero(buffer, 255);
-    // read(sockfd, buffer, 255);
-    // printf("%s\n", buffer);
+    printf("%s", buffer);
+
+    bzero(buffer, 255);
+    read(sockfd, buffer, 255);
+    printf("%s\n\n", buffer);
+    
 
     return 0;
 }

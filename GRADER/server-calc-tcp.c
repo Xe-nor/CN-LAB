@@ -56,6 +56,7 @@ int main()
     }
 
     bzero((char *)&servAddr, sizeof(servAddr));
+    bzero((char *)&cliaddr, sizeof(cliaddr));
 
     servAddr.sin_family = AF_INET;
     servAddr.sin_port = htons(PORT);
@@ -83,7 +84,7 @@ int main()
 
     int grade1, grade2, grade3;
 
-    if (n = write(newsockfd, "SERVER: ENTER GRADE IN SUBJECT 1- \n", strlen("SERVER: ENTER GRADE IN SUBJECT 1- ")) < 0)
+    if (n = write(newsockfd, "SERVER: ENTER MARKS IN PHYSICS- \n", strlen("SERVER: ENTER MARKS IN PHYSICS- ")) < 0)
     {
         printf("error in writing for grade 1\n");
         return -1;
@@ -95,7 +96,7 @@ int main()
     }
     ////////////////////////////////////
 
-    if (n = write(newsockfd, "SERVER: ENTER GRADE IN SUBJECT 2- \n", strlen("SERVER: ENTER GRADE IN SUBJECT 2- ")) < 0)
+    if (n = write(newsockfd, "SERVER: ENTER MARKS IN CHEMISTRY- \n", strlen("SERVER: ENTER MARKS IN CHEMISTRY- ")) < 0)
     {
         printf("error in writing for grade 2/n");
         return -1;
@@ -107,7 +108,7 @@ int main()
     }
     /////////////////////////////////////
 
-    if (n = write(newsockfd, "SERVER: ENTER GRADE IN SUBJECT 3- \n", strlen("SERVER: ENTER GRADE IN SUBJECT 3- ")) < 0)
+    if (n = write(newsockfd, "SERVER: ENTER MARKS IN MATHS- \n", strlen("SERVER: ENTER MARKS IN MATHS- ")) < 0)
     {
         printf("error in writing for grade 3\n");
         return -1;
@@ -124,19 +125,19 @@ int main()
     val2 = grader(grade2);
     val3 = grader(grade3);
 
-    if (n = write(newsockfd, "SERVER: Subject 1- ", strlen("SERVER: Subject 1- ")) < 0)
+    if (n = write(newsockfd, "PHYSICS-> \n", strlen("PHYSICS-> ")) < 0)
     {
         printf("Error in displaying val1");
         return -1;
     }
     write(newsockfd, (char *)&val1, sizeof(char));
-    if (n = write(newsockfd, "SERVER: Subject 2- ", strlen("SERVER: Subject 2- ")) < 0)
+    if (n = write(newsockfd, ", CHEMISTRY-> \n", strlen(", CHEMISTRY-> ")) < 0)
     {
         printf("Error in displaying val2");
         return -1;
     }
     write(newsockfd, (char *)&val2, sizeof(char));
-    if (n = write(newsockfd, "SERVER: Subject 3- ", strlen("SERVER: Subject 3- ")) < 0)
+    if (n = write(newsockfd, ", MATHS-> \n", strlen(", MATHS-> ")) < 0)
     {
         printf("Error in displaying val3");
         return -1;
