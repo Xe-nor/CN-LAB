@@ -28,7 +28,7 @@ char grader(int grade)
     case 51 ... 60:
         return 'C';
         break;
-    case 0 ... 50:
+    case 1 ... 50:
         return 'F';
         break;
 
