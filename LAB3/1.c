@@ -58,6 +58,9 @@ int main()
     z2 = x * y;
     z3 = x / y;
     int num;
+
+    // ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *src_addr, socklen_t *addrlen);
+
     num = recvfrom(sockfd, &a, sizeof(int), MSG_WAITALL, (struct sockaddr *)&cliaddr,
                    &clientsize);
     switch (a)
